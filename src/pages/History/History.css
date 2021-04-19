@@ -28,7 +28,7 @@
   
   .history-listWrapper {
     position: relative;
-    margin-left: 10rem;
+    margin-left: 15rem;
     color: #fff;
     margin-bottom: 1rem;
     margin-top: 7rem;
@@ -37,7 +37,7 @@
   .history-listWrapper button {
     position: absolute;
     top: 3rem;
-    left: 1rem;
+    left: -10rem;
     margin: 1rem;
     background-color: var(--back-color);
     border: 1px solid #fff;
@@ -53,13 +53,16 @@
       margin-left: 20rem;
     }
     .history-listWrapper {
+      height: 1rem;
       color: #fff;
       margin-left: 10rem;
+      margin-top: 0rem;
     }
   
     .history-listWrapper button {
       position: relative;
       top: 8rem;
+      left: 1rem;
       margin: 1rem;
       background-color: var(--back-color);
       border: 1px solid #fff;

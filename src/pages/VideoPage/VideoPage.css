@@ -1,19 +1,23 @@
 .video-wrappers{
     display: flex;
     margin-top: 1rem;
-    margin-left: 5rem;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 100%;
 }
 .name{
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 1rem;
     font-size: 1.3rem;
     color: #fff;
+    margin-left: 1rem;
 }
 .actionBtns{
     display: flex;
-    margin-left: 27rem;
     margin-top: 2rem;
+    margin-left: -3rem;
+    justify-content: space-evenly;
     flex-direction: row;
 }
 .videoDesc{
@@ -22,8 +26,11 @@
     max-width: 40rem;
     line-height: 1.8rem;
     color: #fff;
-    margin-left: 5rem;   
+    margin-left: 1rem;   
     margin-top: 2rem;
+}
+.react-player{
+    width: 20%;
 }
 @media screen and (min-width:758px){
     .video-wrappers{
@@ -32,6 +39,7 @@
         margin-left: 25rem;
         flex-direction: column;
         flex-wrap: wrap;
+        width: 50%;
     }
     .name{
         margin-top: 1rem;
@@ -40,9 +48,10 @@
     }
     .actionBtns{
         display: flex;
-        margin-left: 55rem;
+        margin-left: 40rem;
         margin-top: 2rem;
         flex-direction: row;
+        justify-content: center;
     }
     .videoDesc{
         display: flex;
@@ -50,7 +59,7 @@
         max-width: 40rem;
         line-height: 1.8rem;
         color: #fff;
-        margin-left: 25rem;   
+        margin-left: 26rem;   
         margin-top: 2rem;
     }
 }

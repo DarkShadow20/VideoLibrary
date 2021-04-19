@@ -11,7 +11,7 @@ const { getVideoById } = useUserData();
     <div className="pageWrapper">
         <NavBar/>
       <div className="video-wrappers">
-        <ReactPlayer url={`https://www.youtube.com/watch?v=${video.id}`} className="react-player" controls pip/>
+        <ReactPlayer url={`https://www.youtube.com/watch?v=${video.id}`} className="react-player" width="100%" controls pip/>
         <div className="name">{video.title}</div>
       </div>
       <div className="actionBtnsWrapper">
