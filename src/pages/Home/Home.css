@@ -1,0 +1,10 @@
+@import url("https://nueui-v1.netlify.app/main.css");
+:root{
+    --back-color:#2B2B31;
+}
+body{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--back-color);
+}

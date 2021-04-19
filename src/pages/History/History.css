@@ -1,0 +1,67 @@
+.history-wrapper {
+    margin-top: 2rem;
+    color: #fff;
+    margin-left: 20rem;
+  }
+  
+  .history-wrapper button {
+    margin: 1rem;
+    margin-left: 2rem;
+    background-color: var(--back-color);
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.4rem;
+  }
+  
+  .history-wrapper button:focus {
+    border: 1px solid #fff;
+  }
+  
+  .history-emptyPrompt {
+    display: grid;
+    place-items: center;
+    height: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff9f;
+  }
+  
+  .history-listWrapper {
+    position: relative;
+    margin-left: 20rem;
+  }
+  
+  .history-listWrapper button {
+    position: absolute;
+    top: 1rem;
+    right: 0.1em;
+    margin: 1rem;
+    background-color: var(--back-color);
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.4rem;
+    margin-bottom: 0;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .history-wrapper {
+      margin-top: 1rem;
+      padding: 1rem;
+      margin-left: 20rem;
+    }
+    .history-listWrapper {
+      color: #fff;
+      margin-left: 10rem;
+    }
+  
+    .history-listWrapper button {
+      position: relative;
+      top: 1rem;
+      margin: 1rem;
+      background-color: var(--back-color);
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.4rem;
+      margin-bottom: 2rem;
+    }
+  }

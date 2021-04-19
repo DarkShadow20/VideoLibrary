@@ -1,0 +1,30 @@
+.wrapper {
+    position: relative;
+}
+  
+.wrapper2 {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #fff;
+    display: none;
+    padding: 0.5rem;
+    min-width: 180px;
+  }
+  
+  .wrapper2 input {
+    margin-right: 0.5rem;
+    background-color: #fff;
+  }
+  
+  .wrapper2 > button {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    border: 1px solid white;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    margin: 0.8rem 0.4rem 0 0.4rem;
+  }
