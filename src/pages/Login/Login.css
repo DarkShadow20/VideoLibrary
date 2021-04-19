@@ -2,8 +2,10 @@
     padding-top: 1rem;
     padding-left: 1rem;
     color: #fff;
-    margin-left: 35rem;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
     margin-top: 1rem;
+    max-width: 500px;
+    margin-left: 10rem;
   }
 .login-wrapper > button {
     display: inline;
@@ -36,15 +38,19 @@
     top: 0.3rem;
     font-size: 0.8rem;
     font-weight: bold;
+    right: 3.5rem;
+    background-color: #fff;
+    color: #000;
   }
   
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 758px) {
     .login-wrapper {
       margin-top: 1rem;
       max-width: 500px;
       padding: 5rem;
       padding-top: 4rem;
       box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+      margin-left: 35rem;
     }
   
     .login-wrapper > button {
@@ -58,5 +64,6 @@
     }
     .login-toggleShowPassword {
       left: 220px;
+      max-width: 1rem;
     }
   }

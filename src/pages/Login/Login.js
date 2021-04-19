@@ -90,7 +90,7 @@ export const Login = () => {
           }}
           replace
           to="/signup"
-          style={{ "color": "#fff" , "text-decoration": "none" }}
+          style={{ "color": "#fff" , "textDecoration": "none" }}
         >
           Sign up
         </Link>

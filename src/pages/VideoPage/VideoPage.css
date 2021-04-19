@@ -1,7 +1,7 @@
 .video-wrappers{
     display: flex;
     margin-top: 1rem;
-    margin-left: 25rem;
+    margin-left: 5rem;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -12,7 +12,7 @@
 }
 .actionBtns{
     display: flex;
-    margin-left: 55rem;
+    margin-left: 27rem;
     margin-top: 2rem;
     flex-direction: row;
 }
@@ -22,6 +22,35 @@
     max-width: 40rem;
     line-height: 1.8rem;
     color: #fff;
-    margin-left: 25rem;   
+    margin-left: 5rem;   
     margin-top: 2rem;
+}
+@media screen and (min-width:758px){
+    .video-wrappers{
+        display: flex;
+        margin-top: 1rem;
+        margin-left: 25rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .name{
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    .actionBtns{
+        display: flex;
+        margin-left: 55rem;
+        margin-top: 2rem;
+        flex-direction: row;
+    }
+    .videoDesc{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 40rem;
+        line-height: 1.8rem;
+        color: #fff;
+        margin-left: 25rem;   
+        margin-top: 2rem;
+    }
 }

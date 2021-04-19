@@ -1,11 +1,13 @@
 .signup-wrapper {
-    margin-top: 2rem;
+    margin-top: 8rem;
     margin-left: 1rem;
     padding-top: 1rem;
     padding-left: 1rem;
     position: relative;
     color: #fff;
-    margin-left: 35rem;
+    max-width: 500px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    margin-left: 10rem;
   }
   
   .signup-wrapper > button {
@@ -43,14 +45,19 @@
     top: 0.3rem;
     font-size: 0.8rem;
     font-weight: bold;
+    right: 4rem;
+    background-color: #fff;
+    color: #000;
   }
   
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 758px) {
     .signup-wrapper {
       max-width: 500px;
+      margin-left: 35rem;
       padding: 5rem;
       padding-top: 4rem;
       box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+      margin-top: 2rem;
     }
   
     .signup-wrapper > button {

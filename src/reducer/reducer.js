@@ -1,7 +1,6 @@
 import { v4 } from "uuid";
 
 export const userDataReducer = (state, action) => {
-  console.log(action)
   switch (action.type) {
     case "LIKE_VIDEO":
       return [
