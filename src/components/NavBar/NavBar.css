@@ -15,7 +15,7 @@ nav{
     min-height: 5rem;
     background-color: var(--back-color);
     color: white;
-    box-shadow: 0px 2px 1px rgba(0,0,0,0.7);
+    box-shadow: 0px 2px 1px rgba(0,0,0,0.2);
     
 }
 .Logo{
@@ -56,6 +56,10 @@ button{
     flex-wrap: wrap;
 }
 @media screen and (max-width:768px){
+    @keyframes animate{
+        0%{width: 0%;}
+        100%{width: 50%;}
+    }
     .video-section{
         margin-top: 10rem;
     }
@@ -67,14 +71,18 @@ button{
     }
     .leftSide #hidden{
         position: absolute;
-        right: 0;
-        top: 5rem;
-        height: 10rem;
-        width: 100%;
+        right:1rem;
+        top: 7rem;
+        height: 100%;
+        width: 50%;
         color: white;
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
-        box-shadow: 0px 2px 1px rgba(0,0,0,0.7);
+        box-shadow: 0px 2px 1px rgba(0,0,0,0.2);
+        z-index: 2;
+        animation-name: animate;
+        animation-duration: 2s;
     }
 }
