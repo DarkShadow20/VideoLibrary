@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     margin-top: 1rem;
     font-size: 1.3rem;
-    color: #fff;
+    color: var(--color1);
     margin-left: 1rem;
 }
 .actionBtns{
@@ -25,7 +25,7 @@
     flex-wrap: wrap;
     max-width: 40rem;
     line-height: 1.8rem;
-    color: #fff;
+    color: var(--color1);
     margin-left: 1rem;   
     margin-top: 2rem;
 }
@@ -44,7 +44,7 @@
     .name{
         margin-top: 1rem;
         font-size: 1.3rem;
-        color: #fff;
+        color: var(--color1);
     }
     .actionBtns{
         display: flex;
@@ -58,7 +58,7 @@
         flex-wrap: wrap;
         max-width: 40rem;
         line-height: 1.8rem;
-        color: #fff;
+        color: var(--color1);
         margin-left: 26rem;   
         margin-top: 2rem;
     }

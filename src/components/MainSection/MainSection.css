@@ -2,7 +2,7 @@
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color1);
     margin-top: 1rem;
     margin-left: -10rem;
 }
@@ -12,14 +12,14 @@
     flex-wrap: wrap;
     margin-left: -10rem;
     margin-top: 5rem;
-    color: #fff;
+    color: var(--color1);
 }
 @media screen and (min-width:758px) {
     .title{
         margin-bottom: 2rem;
         font-size: 2rem;
         font-weight: 700;
-        color: #fff;
+        color: var(--color1);
         margin-top: 1rem;
         margin-left: 1rem;
     }
@@ -29,6 +29,6 @@
         flex-wrap: wrap;
         margin-left: 1rem;
         margin-top: 5rem;
-        color: #fff;
+        color: var(--color1);
     }   
 }

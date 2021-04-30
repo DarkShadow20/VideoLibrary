@@ -1,6 +1,6 @@
 .history-wrapper {
     margin-top: 2rem;
-    color: #fff;
+    color: var(--color1);
     margin-left: 10rem;
   }
   
@@ -8,13 +8,13 @@
     margin: 1rem;
     margin-left: 2rem;
     background-color: var(--back-color);
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--color1);
+    color: var(--color1);
     padding: 0.4rem;
   }
   
   .history-wrapper button:focus {
-    border: 1px solid #fff;
+    border: 1px solid var(--color1);
   }
   
   .history-emptyPrompt {
@@ -29,7 +29,7 @@
   .history-listWrapper {
     position: relative;
     margin-left: 15rem;
-    color: #fff;
+    color: var(--color1);
     margin-bottom: 1rem;
     margin-top: 7rem;
   }
@@ -40,8 +40,8 @@
     left: -10rem;
     margin: 1rem;
     background-color: var(--back-color);
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--color1);
+    color: var(--color1);
     padding: 0.4rem;
     margin-bottom: 0;
   }
@@ -54,7 +54,7 @@
     }
     .history-listWrapper {
       height: 1rem;
-      color: #fff;
+      color: var(--color1);
       margin-left: 10rem;
       margin-top: 0rem;
     }
@@ -65,8 +65,8 @@
       left: 1rem;
       margin: 1rem;
       background-color: var(--back-color);
-      border: 1px solid #fff;
-      color: #fff;
+      border: 1px solid var(--color1);
+      color: var(--color1);
       padding: 0.4rem;
       margin-bottom: 2rem;
     }

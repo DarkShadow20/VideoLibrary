@@ -4,13 +4,13 @@
    .playlist-wrapper button {
      margin: 1rem;
      background-color: var(--back-color);
-     border: 1px solid #fff;
-     color: #fff;
+     border: 1px solid var(--color1);
+     color: var(--color1);
      padding: 0.4rem;
    }
    
    .playlist-wrapper button:focus{
-     border: 1px solid #000;
+     border: 1px solid var(--color2);
    }
    
    .playlist-emptyPrompt {
@@ -25,7 +25,7 @@
    
    .playlist-listWrapper {
     margin-left: 10rem;
-    color: #fff;
+    color: var(--color1);
    }
    @media screen and (min-width: 768px) {
      .playlist-wrapper {
@@ -33,7 +33,7 @@
        padding: 1rem;
      }
      .playlist-listWrapper {
-      color: #fff;
+      color: var(--color1);
       margin-left: 10rem;
       margin-top: 1rem;
      }
