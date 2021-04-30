@@ -6,9 +6,9 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background-color: #fff;
+    background-color: var(--color1);
     border: 1px solid #000;
-    color: #fff;
+    color: var(--color1);
     display: none;
     padding: 0.5rem;
     min-width: 180px;
@@ -26,5 +26,5 @@
     border: 1px solid white;
     padding: 0.3rem;
     font-size: 0.9rem;
-    margin: 0.8rem 0.4rem 0 0.4rem;
+    margin: 0.8rem 0.4rem 0 ;
   }

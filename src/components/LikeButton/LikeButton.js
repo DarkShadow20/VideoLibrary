@@ -14,7 +14,7 @@ export const LikeButton = ({ id }) => {
           className="icon"
           style={{ color: isLiked(id) ? "red" : "white" }}
         >
-          <i class="fa fa-thumbs-up"></i>
+          <i className="fa fa-thumbs-up"></i>
         </div>
       </button>
     </div>

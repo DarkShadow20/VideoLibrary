@@ -28,7 +28,7 @@ export const AddToPlayList = ({ id }) => {
           className="icon"
           style={{ color: isChecked ? "red" : "white" }}
         >
-          <i class="fa fa-plus"></i>
+          <i className="fa fa-plus"></i>
         </div>
       </button>
 

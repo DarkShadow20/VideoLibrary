@@ -14,7 +14,7 @@ export const SaveButton = ({ id }) => {
           color: isSaved(id) ? "red" : "white"
         }}
       >
-        <i class="fa fa-bookmark"></i>
+        <i className="fa fa-bookmark"></i>
       </div>
     </button>
     </div>
