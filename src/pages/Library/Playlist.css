@@ -1,0 +1,41 @@
+.playlist-wrapper {
+    margin-top: 2rem;
+   }
+   .playlist-wrapper button {
+     margin: 1rem;
+     background-color: var(--back-color);
+     border: 1px solid var(--color1);
+     color: var(--color1);
+     padding: 0.4rem;
+   }
+   
+   .playlist-wrapper button:focus{
+     border: 1px solid var(--color2);
+   }
+   
+   .playlist-emptyPrompt {
+     display: grid;
+     place-items: center;
+     height: 50%;
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: #ffffff9f;
+   }
+   
+   
+   .playlist-listWrapper {
+    margin-left: 10rem;
+    color: var(--color1);
+   }
+   @media screen and (min-width: 768px) {
+     .playlist-wrapper {
+       margin-top: 100px;
+       padding: 1rem;
+     }
+     .playlist-listWrapper {
+      color: var(--color1);
+      margin-left: 10rem;
+      margin-top: 1rem;
+     }
+     
+   }

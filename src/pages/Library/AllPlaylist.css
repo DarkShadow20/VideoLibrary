@@ -1,0 +1,67 @@
+.play-wrapper {
+    margin-top: 2.5rem;
+    padding-left: 1.5rem;
+    color: var(--color1);
+  }
+  
+  .play-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .play-defaultPlaylistWrapper {
+    margin-bottom: 5rem;
+  }
+  
+  
+  .play-separator {
+    border-bottom: 1px solid var(--color2);
+    width: 90%;
+    margin: 1rem 0;
+  }
+  
+  .play-subtitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    position: relative;
+    top: 1rem;
+  }
+  
+  .play-manageBtn {
+    position: relative;
+    background-color: var(--color2);
+    border: none;
+    color: var(--color1);
+    border: 1px solid var(--color2);
+    padding: 0.4rem 0.5rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .play-createBtn {
+    position: relative;
+    bottom: 1rem;
+  }
+  
+  .play-playListName {
+    margin: 1.5rem 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  
+  
+  @media screen and (min-width: 721px) {
+  
+    .play-wrapper {
+      max-width: 1000px;
+      padding: 5rem;
+      padding-top: 2.5rem;
+    }
+    
+  }

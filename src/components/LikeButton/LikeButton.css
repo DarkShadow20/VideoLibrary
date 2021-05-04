@@ -1,0 +1,26 @@
+.btn-icons{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.icon{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+    [data-tooltip]:before {
+      position: absolute;
+      content: attr(data-tooltip);
+      display: none;
+      top: -1.2rem;
+      left: 1rem;
+      color: var(--color2);
+      background-color: var(--color1);
+      padding: 0 0.2rem;
+      font-weight: bold;
+    }
+  
+    [data-tooltip]:hover:before {
+      display: block;
+    }
+  }

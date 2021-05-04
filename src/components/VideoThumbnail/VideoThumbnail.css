@@ -1,0 +1,16 @@
+@import url("https://nueui-v1.netlify.app/main.css");
+.card-collection-wrapper{
+    border: none;
+}
+.card{
+    border: none;
+    margin: 0 2rem 2rem 0;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+}
+.card-body{
+    border: none;
+    height: 6rem;
+}
+.card-img-top{
+    border: none;
+}
