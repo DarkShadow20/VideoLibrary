@@ -6,7 +6,7 @@ import axios from "axios";
 import "./Login.css";
 import { NavBar } from "../../components";
 export const Login = () => {
-  const { isUserLoggedIn, setLogin, setUserName } = useAuth();
+  const { isUserLoggedIn, setLogin, setUserName,setUserData } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ export const Login = () => {
     if (validateUserInput({ email }).checkEmail) {
       setError("");
       axios
-        .post("https://vidlib.kunalgupta9.repl.co/users", {
+        .post("https://videolibrary.kunalgupta9.repl.co/users/login", {
           email,
           password
         })
@@ -28,6 +28,7 @@ export const Login = () => {
           }
           setLogin(res.data.success);
           if (res.data.success) {
+            setUserData(res.data.user)
             navigate(location?.state?.from ? location.state.from : "/");
           }
           setUserName(res.data.name);
@@ -45,12 +46,6 @@ export const Login = () => {
         <Navigate to={location?.state?.from ? location.state.from : "/"} />
       )}
       <h1>Login</h1>
-
-      {location?.state?.from && (
-        <div className="login-redirectPrompt">
-          Login to continue to {location.state.from.split("/")[1]}{" "}
-        </div>
-      )}
 
       <div className="login-inputWrapper">
         <label>

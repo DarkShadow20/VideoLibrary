@@ -7,10 +7,9 @@ export const ManagePlaylist = ({ setRoute }) => {
 
   return (
     <div className="manage-wrapper" >
-      <button onClick={() => setRoute("all")}>Back</button>
-      {state.filter(({ id }) => id !== "LIKED" && id !== "WATCH_LATER" && id !== "HISTORY").length >
+      {state.filter(({ id }) =>id!=="VIDEO" && id !== "LIKED"  && id !== "HISTORY").length >
       0
-        ? state.filter(({ id }) => id !== "LIKED" && id !== "WATCH_LATER" && id !== "HISTORY").map((list) => 
+        ? state.filter(({ id }) => id!=="VIDEO" && id !== "LIKED"  && id !== "HISTORY").map((list) => 
         <PlaylistEdit key={list.id} playlist={list} />)
         : "No playlists."}
     </div>

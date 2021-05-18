@@ -1,12 +1,14 @@
-import React,{useState}  from 'react'
+import React,{useState,useContext}  from 'react'
 import ReorderIcon from "@material-ui/icons/Reorder";
 import {useAuth} from "../../hooks";
 import "./NavBar.css";
+import { UserDataContext } from "../../context";
 import { useNavigate } from 'react-router';
 function NavBar() {
     const [showLinks,setShowLinks]=useState(false)
     const { isUserLoggedIn, setLogin } = useAuth();
     const navigate=useNavigate();
+    const {dispatch}=useContext(UserDataContext)
     return (
              <>
             <nav>
@@ -20,7 +22,9 @@ function NavBar() {
                                   <>
                                     <button
                                       onClick={() => {
+                                        navigate("/")
                                         setLogin(false);
+                                        dispatch({type:"LOGOUT",payload:"logout"})
                                       }}
                                     >
                                       <div>Log out</div>

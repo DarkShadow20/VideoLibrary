@@ -15,8 +15,7 @@ export const SignUp = () => {
   const [error, setError] = useState("");
   const [togglePassword, setTogglePassword] = useState(true);
 
-  const { setLogin, setUserName } = useAuth();
-
+  const { setLogin, setUserName, setUserData } = useAuth();
   const location = useLocation();
 
   const signupBtnHandler = () => {
@@ -35,7 +34,7 @@ export const SignUp = () => {
     ) {
       setError("");
       axios
-        .post("https://vidlib.kunalgupta9.repl.co/users/new", {
+        .post("https://videolibrary.kunalgupta9.repl.co/users/signup", {
           email: newEmail,
           password: newPassword,
           name: newName
@@ -44,6 +43,7 @@ export const SignUp = () => {
           setSignIn(res.data.success);
           setLogin(true);
           setUserName(newName);
+          setUserData(res.data.user)
         });
     } else {
       !validations.checkName && setError("Name must be characters only!");

@@ -1,11 +1,12 @@
+import axios from "axios";
 import { useContext } from "react";
 import { UserDataContext } from "../context";
-import { useVideoData } from "../hooks";
+import { useAuth } from "./useAuth";
 
 export const useUserData = () => {
   const { state, dispatch } = useContext(UserDataContext);
-
-  const { videoList } = useVideoData();
+  const {userData}=useAuth();
+  const videoList  = state[0].videos
 
   const getVideoById = (id) => {
     return videoList.find((video) => video.id === id);
@@ -17,25 +18,26 @@ export const useUserData = () => {
 
   const isLiked = (id) => {
     return state
-      .find(({ id }) => id === "LIKED")
-      .videos.some((video) => video.id === id);
+    .find(({ id }) => id === "LIKED")
+    .videos.some((video) => video.some((item)=>item.id===id))
   };
 
-  const toggleLiked = (id) => {
-    if (!isLiked(id)) {
-      const video = getVideoById(id);
-
+  const toggleLiked = async  (_id) => {
+    let response
+    if (!isLiked(_id)) {
+      // const video = getVideoById(_id);
+      response=await axios.post(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData._id}`,{_id})
       dispatch({
         type: "LIKE_VIDEO",
-        payload: {
-          video
-        }
+        payload: 
+          response.data.likedVideo
       });
     } else {
+      response=await axios.post(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData._id}`,{_id})
       dispatch({
         type: "UNLIKE_VIDEO",
         payload: {
-          id
+          _id
         }
       });
     }
@@ -67,31 +69,36 @@ export const useUserData = () => {
     }
   };
 
-  const editPlaylistOnClick = (id, newName) => {
+  const editPlaylistOnClick = async (_id, name) => {
+    //eslint-disable-next-line
+    const response=await axios.put(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}`,{_id,name})
     dispatch({
       type: "EDIT_PLAYLIST",
       payload: {
-        id,
-        newName
+        _id,
+        name
       }
     });
   };
 
-  const deletePlaylistOnClick = (id) => {
+  const deletePlaylistOnClick = async(playlistId) => {
+    //eslint-disable-next-line
+    const response=await axios.put(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}/list/${playlistId}`)
     dispatch({
       type: "DELETE_PLAYLIST",
       payload: {
-        id
+        playlistId
       }
     });
   };
 
-  const creatNewPlaylist = (name) => {
+  const creatNewPlaylist = async (name,_id) => {
+    let response;
+    response=await axios.post(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}`,{name,_id})
     dispatch({
       type: "CREATE_NEW_PLAYLIST",
-      payload: {
-        name
-      }
+      payload: 
+        response.data.playlist
     });
   };
 
@@ -99,8 +106,8 @@ export const useUserData = () => {
     return state
       .filter(
         (list) =>
+          list.id!=="VIDEO" &&
           list.id !== "LIKED" &&
-          list.id !== "WATCH_LATER" &&
           list.id !== "HISTORY"
       )
       .map(({ id, name }) => ({ id, name }));
@@ -112,17 +119,22 @@ export const useUserData = () => {
       .videos.some((video) => video.id === id);
   };
 
-  const togglePlaylist = (playlistId, id) => {
-    if (isVideoInPlaylist(playlistId, id)) {
+  const togglePlaylist = async (playlistId, _id) => {
+
+    if (isVideoInPlaylist(playlistId, _id)) {
+      //eslint-disable-next-line
+      const respone=await axios.post(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}/list/${playlistId}`,{_id})
       dispatch({
         type: "REMOVE_VIDEO_FROM_PLAYLIST",
         payload: {
           playlistId,
-          id
+          _id
         }
       });
     } else {
-      const video = getVideoById(id);
+      const video = getVideoById(_id);
+      //eslint-disable-next-line
+      const respone=await axios.post(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}/list/${playlistId}`,{_id})
       dispatch({
         type: "ADD_VIDEO_TO_PLAYLIST",
         payload: {
@@ -133,29 +145,33 @@ export const useUserData = () => {
     }
   };
 
-  const addToHistoryOnClick = (id) => {
-    const video = getVideoById(id);
-
-    dispatch({
-      type: "ADD_TO_HISTORY",
-      payload: {
-        video
-      }
-    });
-  };
-
+  const addToHistoryOnClick = async(id) => {
+    const userId=userData?._id;
+    if(userId)
+    {
+      const response=await axios.post(`https://videolibrary.kunalgupta9.repl.co/history/${userId}`,{id})   
+      dispatch({
+        type: "ADD_TO_HISTORY",
+        payload: response.data.history
+      });
+    };
+  }
   const isInHistory = (id) => {
     return state
       .find(({ id }) => id === "HISTORY")
       .videos.some((video) => video.id === id);
   };
 
-  const clearHistory = () => {
-    dispatch({
-      type: "CLEAR_HISTORY"
-    });
-  };
-
+  const clearHistory = async() => {
+    const userId=userData?._id
+    if(userId)
+    {//eslint-disable-next-line
+      const response=await axios.delete(`https://videolibrary.kunalgupta9.repl.co/history/${userId}`)
+      dispatch({
+        type: "CLEAR_HISTORY"
+      });
+    };
+  }
   return {
     state,
     addToHistoryOnClick,

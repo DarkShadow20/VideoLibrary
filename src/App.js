@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <PrivateRoute path="/" element={<Home />} />
           <Route path="/video/:videoId" element={<VideoPage />} />
           <PrivateRoute path="/library" element={<Library/>}/>
           <PrivateRoute path="/history" element={<History />} />
