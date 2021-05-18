@@ -12,7 +12,7 @@ export const userDataReducer = (state, action) => {
           if (list.id === "LIKED") {
             return {
               ...list,
-              videos: [action.payload, ...list.videos]
+              videos:[action.payload]
             };
           }
           return list;
@@ -107,9 +107,9 @@ export const userDataReducer = (state, action) => {
           if (list.id === action.payload.playlistId) {
             return {
               ...list,
-              videos: list.videos.filter(
+              videos: [list.videos.filter(
                 (video) => video.id !== action.payload.id
-              )
+              )]
             };
           }
           return list;

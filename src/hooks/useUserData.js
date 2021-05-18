@@ -43,32 +43,6 @@ export const useUserData = () => {
     }
   };
 
-  const isSaved = (id) => {
-    return state
-      .find(({ id }) => id === "WATCH_LATER")
-      .videos.some((video) => video.id === id);
-  };
-
-  const toggleSaved = (id) => {
-    if (!isSaved(id)) {
-      const video = getVideoById(id);
-
-      dispatch({
-        type: "SAVE_VIDEO",
-        payload: {
-          video
-        }
-      });
-    } else {
-      dispatch({
-        type: "UNSAVE_VIDEO",
-        payload: {
-          id
-        }
-      });
-    }
-  };
-
   const editPlaylistOnClick = async (_id, name) => {
     //eslint-disable-next-line
     const response=await axios.put(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}`,{_id,name})
@@ -123,7 +97,7 @@ export const useUserData = () => {
 
     if (isVideoInPlaylist(playlistId, _id)) {
       //eslint-disable-next-line
-      const respone=await axios.post(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}/list/${playlistId}`,{_id})
+      const response=await axios.post(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData._id}/list/${playlistId}`,{_id})
       dispatch({
         type: "REMOVE_VIDEO_FROM_PLAYLIST",
         payload: {
@@ -186,8 +160,6 @@ export const useUserData = () => {
     deletePlaylistOnClick,
     isLiked,
     toggleLiked,
-    isSaved,
-    toggleSaved,
     getSelectedPlaylist
   };
 };

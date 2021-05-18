@@ -9,14 +9,15 @@ import { UserDataContext} from "../../context";
 export const Playlist = () => {
   let idArr,selectedPlaylistVideo,playlist;
   let playlists=[];
+  let playListVideoArr=[]
   const { getSelectedPlaylist } = useUserData();
   const {userData}=useAuth();
   const { playListId } = useParams();
   const {state,dispatch}=useContext(UserDataContext);
   let selectedPlaylist=state.filter((items)=>items.id===playListId)
-  let playListVideoArr=selectedPlaylist.map((items)=>(items.videos))
+  playListVideoArr=selectedPlaylist.map((items)=>(items.videos))
   
-  if(playListVideoArr[0].length)
+  if(playListVideoArr.length>0)
   {
     
     idArr=playListVideoArr.map((items)=>items.map((list)=>(list.id)))
@@ -34,7 +35,12 @@ export const Playlist = () => {
   const play=getSelectedPlaylist(playListId)
   if(playListId==="LIKED"){
     playlist=state[1].videos
-    playlists=playlist[0]
+    if(playlist.length>0){
+      playlists=playlist[0]
+    }
+    else{
+      playlists=[]
+    }
   }
   else if(playListId!=="LIKED" && playListId!=="HISTORY" && playListId!=="VIDEO"){
     playlists=selectedPlaylistVideo
@@ -45,7 +51,7 @@ export const Playlist = () => {
   else{
     playlists=[]
   }
-  if (playlists) {
+  if (playlists.length>0 ) {
     return (
       <>
       <NavBar/>
