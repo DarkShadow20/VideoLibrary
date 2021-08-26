@@ -1,6 +1,6 @@
 import { useAuth, useUserData } from "../../hooks";
 import { MainSection ,NavBar} from "../../components";
-import { useParams} from "react-router-dom";
+import { Navigate, useParams} from "react-router-dom";
 import "./Playlist.css";
 import axios from "axios";
 import { useContext, useEffect } from "react";
@@ -16,22 +16,25 @@ export const Playlist = () => {
   const {state,dispatch}=useContext(UserDataContext);
   let selectedPlaylist=state.filter((items)=>items.id===playListId)
   playListVideoArr=selectedPlaylist.map((items)=>(items.videos))
-  
   if(playListVideoArr.length>0)
   {
-    
     idArr=playListVideoArr.map((items)=>items.map((list)=>(list.id)))
     selectedPlaylistVideo=state[0].videos.filter((item)=>idArr[0].includes(item.id))
-
   }
   useEffect(()=>{
     (async function(){
-      const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData._id}`)
+      const res= await axios.get("https://videolibrary.kunalgupta9.repl.co/video");
+      dispatch({type:"SET_VIDEO",payload:res.data.videos})
+      const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData?._id}`)
       dispatch({type:"LIKE_VIDEO",payload:response.data.likedVideoItems})
     })()
     //eslint-disable-next-line
   },[])
-  
+  if(playListId===":playListId"){
+    return(<>
+    <Navigate to = "/library"/>
+    </>)
+  }
   const play=getSelectedPlaylist(playListId)
   if(playListId==="LIKED"){
     playlist=state[1].videos
@@ -45,13 +48,13 @@ export const Playlist = () => {
   else if(playListId!=="LIKED" && playListId!=="HISTORY" && playListId!=="VIDEO"){
     playlists=selectedPlaylistVideo
     if(!selectedPlaylistVideo){
-      playlists=[]
+      playlists=selectedPlaylist[0]?.videos
     }
   }
   else{
     playlists=[]
   }
-  if (playlists.length>0 ) {
+  if (playlists?.length>0 ) {
     return (
       <>
       <NavBar/>

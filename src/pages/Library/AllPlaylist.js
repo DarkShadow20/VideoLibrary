@@ -42,8 +42,7 @@ export const AllPlaylist = ({ setRoute }) => {
           </div>
         </div>
         <div className="play-separator" />
-        {state
-          .filter(
+        {state.filter(
             (list) =>
               list.id!=="VIDEO" &&  
               list.id !== "LIKED" &&
@@ -53,7 +52,7 @@ export const AllPlaylist = ({ setRoute }) => {
             <div
               key={playlist.id}
               className="play-playListName"
-              onClick={() => navigate(`/play-list/${playlist.id}`)}
+              onClick={() => navigate(`/play-list/${playlist?.id}`)}
             >
               {playlist.name}
             </div>
