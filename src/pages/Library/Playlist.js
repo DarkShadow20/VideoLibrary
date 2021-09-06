@@ -3,8 +3,9 @@ import { MainSection ,NavBar} from "../../components";
 import { Navigate, useParams} from "react-router-dom";
 import "./Playlist.css";
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserDataContext} from "../../context";
+import Loader from "react-loader-spinner";
 
 export const Playlist = () => {
   let idArr,selectedPlaylistVideo,playlist;
@@ -14,6 +15,7 @@ export const Playlist = () => {
   const {userData}=useAuth();
   const { playListId } = useParams();
   const {state,dispatch}=useContext(UserDataContext);
+  const [loading,setLoading]=useState(false);
   let selectedPlaylist=state.filter((items)=>items.id===playListId)
   playListVideoArr=selectedPlaylist.map((items)=>(items.videos))
   if(playListVideoArr.length>0)
@@ -23,10 +25,17 @@ export const Playlist = () => {
   }
   useEffect(()=>{
     (async function(){
-      const res= await axios.get("https://videolibrary.kunalgupta9.repl.co/video");
-      dispatch({type:"SET_VIDEO",payload:res.data.videos})
-      const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData?._id}`)
-      dispatch({type:"LIKE_VIDEO",payload:response.data.likedVideoItems})
+      try{
+        setLoading(true)
+        const res= await axios.get("https://videolibrary.kunalgupta9.repl.co/video");
+        dispatch({type:"SET_VIDEO",payload:res.data.videos})
+        const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData?._id}`)
+        dispatch({type:"LIKE_VIDEO",payload:response.data.likedVideoItems})
+        setLoading(false)
+      }catch(err){
+        setLoading(false)
+        console.log(err)
+      }
     })()
     //eslint-disable-next-line
   },[])
@@ -58,24 +67,34 @@ export const Playlist = () => {
     return (
       <>
       <NavBar/>
-      <div className="playlist-listWrapper">
+      {loading?(<div className="loader">
+            <Loader type="ThreeDots" color="#fff" height={80} width={80} />
+        </div>):(
+        <div className="playlist-listWrapper">
         <MainSection
           route={play.name}
           videoList={playlists}
           inLibrary={"inLibrary"}
         />
       </div>
+      )}
       </>
     );
   } else {
     return (
       <>
       <NavBar/>
+      {loading?(
+        <div className="loader">
+          <Loader type="ThreeDots" color="#fff" height={80} width={80} />
+        </div>
+      ):(
       <div className="playlist-wrapper" >
         <div className="playlist-emptyPrompt" >
-        Add some videos here.
+          Add some videos here.
         </div>
       </div>
+      )}
       </>
     );
   }
