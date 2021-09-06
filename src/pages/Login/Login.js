@@ -14,7 +14,13 @@ export const Login = () => {
   const [error, setError] = useState("");
   const [togglePassword, setTogglePassword] = useState(true);
 
-  const loginBtnHandler = () => {
+  const guestUserHandler=()=>{
+    setEmail("ram@gmail.com");
+    setPassword("Lolo@123");
+  }
+  const loginBtnHandler = async (e) => {
+    e.preventDefault();
+
     if (validateUserInput({ email }).checkEmail) {
       setError("");
       axios
@@ -41,6 +47,7 @@ export const Login = () => {
   return (
     <>
     <NavBar/>
+    <form onSubmit={loginBtnHandler}>
     <div className="login-wrapper">
       {isUserLoggedIn && (
         <Navigate to={location?.state?.from ? location.state.from : "/"} />
@@ -75,7 +82,7 @@ export const Login = () => {
             </div>
           </div>
         </label>
-        <span className="login-errorPrompt">{error}</span>
+        <span className="login-errorPrompt" style={{color:"red"}}>{error}</span>
       </div>
 
       <button>
@@ -91,7 +98,10 @@ export const Login = () => {
         </Link>
       </button>
       <button onClick={loginBtnHandler}>Login</button>
+      <br/>
+      <button style={{width:"10rem",marginLeft:"2rem"}} onClick={guestUserHandler}>Login in as GuestUser</button>
     </div>
+    </form>
     </>
   );
 };

@@ -106,7 +106,7 @@ export const SignUp = () => {
         </label>
       </div>
       <button onClick={signupBtnHandler}>Sign up</button>
-      {error}
+      <span className="login-errorPrompt" style={{color:"red"}}>{error}</span>
       <h4>
         {isUserSignedIn && (
           <Navigate
