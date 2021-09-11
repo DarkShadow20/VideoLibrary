@@ -12,6 +12,7 @@ export const History =  () => {
   const {userData}=useAuth();
   const userId=userData._id
   const [loading,setLoading]=useState(false)
+  const [clearBtnLoad,setClearBtnLoad]=useState(true)
   useEffect(()=>{
     (async function(){
       try{
@@ -37,7 +38,7 @@ export const History =  () => {
         </div>
       ):(
       <div className="history-listWrapper">
-        <button onClick={clearHistory}>Clear</button>
+        <button onClick={()=>{clearHistory();setClearBtnLoad(false)}}>{!clearBtnLoad?"Loading...":"Clear"}</button>
         <MainSection route={"History"} videoList={videoList[0]} />
       </div>
       )}
