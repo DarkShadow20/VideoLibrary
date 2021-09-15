@@ -15,7 +15,7 @@ export const VideoPage=()=>{
   const video = getVideoById(videoId);
   useEffect(()=>{
     (async function(){
-      let{data:{playlist}}=await axios.get(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData?._id}`)
+      let{data:{playlist}}=await axios.get(`https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/playlist/${userData?._id}`)
       dispatch({type:"GET_PLAYLIST",payload:playlist})
     })()
     //eslint-disable-next-line

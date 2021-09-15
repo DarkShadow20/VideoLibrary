@@ -10,7 +10,7 @@ export const LikeButton = ({ id }) => {
   const {dispatch}=useContext(UserDataContext);
     useEffect(()=>{
       (async function(){
-        const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData?._id}`)
+        const response=await axios.get(`https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/liked-video/${userData?._id}`)
         dispatch({type:"LIKE_VIDEO",payload:response.data.likedVideoItems})
       })()
       //eslint-disable-next-line

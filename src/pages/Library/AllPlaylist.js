@@ -16,7 +16,7 @@ export const AllPlaylist = ({ setRoute }) => {
     (async function(){
       try{
         setLoading(true)
-      let{data:{playlist}}=await axios.get(`https://videolibrary.kunalgupta9.repl.co/playlist/${userData?._id}`)
+      let{data:{playlist}}=await axios.get(`https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/playlist/${userData?._id}`)
       dispatch({type:"GET_PLAYLIST",payload:playlist})
       setLoading(false)
       }catch(err){

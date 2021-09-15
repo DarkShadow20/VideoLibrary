@@ -14,7 +14,7 @@ function Home() {
         (async function (){
             try{
                 setLoading(true)
-            const response= await axios.get("https://videolibrary.kunalgupta9.repl.co/video");
+            const response= await axios.get("https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/video");
             dispatch({type:"SET_VIDEO",payload:response.data.videos})
             setLoading(false)
             }

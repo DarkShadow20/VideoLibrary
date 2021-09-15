@@ -17,7 +17,7 @@ export const History =  () => {
     (async function(){
       try{
         setLoading(true)
-        const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/history/${userId}`)
+        const response=await axios.get(`https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/history/${userId}`)
         dispatch({type:"ADD_TO_HISTORY",payload:response.data.historyItems})
         setLoading(false)
       }catch(err){

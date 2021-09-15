@@ -34,7 +34,7 @@ export const SignUp = () => {
     ) {
       setError("");
       axios
-        .post("https://videolibrary.kunalgupta9.repl.co/users/signup", {
+        .post("https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/users/signup", {
           email: newEmail,
           password: newPassword,
           name: newName

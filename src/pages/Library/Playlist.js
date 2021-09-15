@@ -27,9 +27,9 @@ export const Playlist = () => {
     (async function(){
       try{
         setLoading(true)
-        const res= await axios.get("https://videolibrary.kunalgupta9.repl.co/video");
+        const res= await axios.get("https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/video");
         dispatch({type:"SET_VIDEO",payload:res.data.videos})
-        const response=await axios.get(`https://videolibrary.kunalgupta9.repl.co/liked-video/${userData?._id}`)
+        const response=await axios.get(`https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/liked-video/${userData?._id}`)
         dispatch({type:"LIKE_VIDEO",payload:response.data.likedVideoItems})
         setLoading(false)
       }catch(err){
