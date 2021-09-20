@@ -15,4 +15,4 @@ A video library App for learning Badminton
 - Like/Unlike video
 - History of watched videos
 
-*Frontend uses React and Backend done using Express,MongoDb & Mongoose*
+*Frontend uses React, [NueUI](https://nueui-v1.netlify.app/) and Backend done using Express,MongoDb & Mongoose*
