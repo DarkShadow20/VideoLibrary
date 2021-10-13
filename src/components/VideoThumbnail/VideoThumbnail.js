@@ -11,7 +11,7 @@ export const VideoThumbnail=({video})=>{
             navigate(`/video/${video.id}`);
             !isInHistory(video.id) && addToHistoryOnClick(video.id);
           }}>
-                <img className="card-img-top" src={video.thumbnailURL} alt=""/>
+                <img className="card-img-tops" src={video.thumbnailURL} alt=""/>
                 <div className="card-body">
                 <h5 className="card-title">{video.title}</h5>
           </div>

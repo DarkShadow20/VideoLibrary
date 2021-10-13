@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useUserData } from "../../hooks";
 import "./CreatePlaylist.css";
 
-export const CreatePlaylist = () => {
+export const CreatePlaylist = ({id}) => {
   const divRef = useRef(null);
   const inputRef = useRef(null);
   const [text, setText] = useState("");
@@ -41,7 +41,7 @@ export const CreatePlaylist = () => {
             onClick={() => {
               divRef.current.style.display = "none";
               if (text !== "") {
-                creatNewPlaylist(text);
+                creatNewPlaylist(text,id);
                 setText("");
               }
             }}

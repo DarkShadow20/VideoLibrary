@@ -6,7 +6,7 @@ import axios from "axios";
 import "./Login.css";
 import { NavBar } from "../../components";
 export const Login = () => {
-  const { isUserLoggedIn, setLogin, setUserName } = useAuth();
+  const { isUserLoggedIn, setLogin, setUserName,setUserData } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -14,11 +14,17 @@ export const Login = () => {
   const [error, setError] = useState("");
   const [togglePassword, setTogglePassword] = useState(true);
 
-  const loginBtnHandler = () => {
+  const guestUserHandler=()=>{
+    setEmail("ram@gmail.com");
+    setPassword("Lolo@123");
+  }
+  const loginBtnHandler = async (e) => {
+    e.preventDefault();
+
     if (validateUserInput({ email }).checkEmail) {
       setError("");
       axios
-        .post("https://vidlib.kunalgupta9.repl.co/users", {
+        .post("https://8189ec78-7429-4fd0-b496-a077b74d5ee9.id.repl.co/users/login", {
           email,
           password
         })
@@ -28,6 +34,7 @@ export const Login = () => {
           }
           setLogin(res.data.success);
           if (res.data.success) {
+            setUserData(res.data.user)
             navigate(location?.state?.from ? location.state.from : "/");
           }
           setUserName(res.data.name);
@@ -40,17 +47,12 @@ export const Login = () => {
   return (
     <>
     <NavBar/>
+    <form onSubmit={loginBtnHandler}>
     <div className="login-wrapper">
       {isUserLoggedIn && (
         <Navigate to={location?.state?.from ? location.state.from : "/"} />
       )}
       <h1>Login</h1>
-
-      {location?.state?.from && (
-        <div className="login-redirectPrompt">
-          Login to continue to {location.state.from.split("/")[1]}{" "}
-        </div>
-      )}
 
       <div className="login-inputWrapper">
         <label>
@@ -80,7 +82,7 @@ export const Login = () => {
             </div>
           </div>
         </label>
-        <span className="login-errorPrompt">{error}</span>
+        <span className="login-errorPrompt" style={{color:"red"}}>{error}</span>
       </div>
 
       <button>
@@ -96,7 +98,10 @@ export const Login = () => {
         </Link>
       </button>
       <button onClick={loginBtnHandler}>Login</button>
+      <br/>
+      <button style={{width:"10rem",marginLeft:"2rem"}} onClick={guestUserHandler}>Login in as GuestUser</button>
     </div>
+    </form>
     </>
   );
 };

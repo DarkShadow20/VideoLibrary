@@ -46,7 +46,7 @@ export const AddToPlayList = ({ id }) => {
             </label>
           );
         })}
-        <CreatePlaylist />
+        <CreatePlaylist id={id}/>
         <button onClick={() => (divRef.current.style.display = "none")}>
           Close
         </button>

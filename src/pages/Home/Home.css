@@ -8,3 +8,7 @@ body{
     box-sizing: border-box;
     background-color: var(--back-color);
 }
+.loader {
+    display: flex;
+    justify-content: center;
+  }

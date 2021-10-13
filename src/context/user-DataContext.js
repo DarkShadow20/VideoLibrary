@@ -5,13 +5,13 @@ export const UserDataContext = createContext();
 export const UserDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userDataReducer, [
     {
-      id: "LIKED",
-      name: "Liked",
-      videos: []
+      id:"VIDEO",
+      name:"Videos",
+      videos:[]
     },
     {
-      id: "WATCH_LATER",
-      name: "Watch later",
+      id: "LIKED",
+      name: "Liked",
       videos: []
     },
     {
@@ -19,11 +19,6 @@ export const UserDataProvider = ({ children }) => {
       name: "History",
       videos: []
     },
-    {
-      id: "dgrdgd",
-      name: "Custom 1",
-      videos: []
-    }
   ]);
   return (
     <UserDataContext.Provider value={{ state, dispatch }}>
